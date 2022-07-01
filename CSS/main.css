@@ -1,0 +1,32 @@
+* {
+   font-family: "Nunito", sans-serif; 
+   box-sizing: border-box;
+}
+
+body {
+    background-color: turquoise;
+}
+
+main { 
+    height: 70vh;
+    width: 120vh;
+    display: grid;
+    grid-template-rows: 16vmin 16vmin 16vmin 16vmin 16vmin 16vmin;
+    grid-template-columns: 14vmin 14vmin 14vmin 14vmin 14vmin 14vmin 14vmin;
+    gap: 30px 15px;
+    background-color: aliceblue;
+
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+main {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+}
