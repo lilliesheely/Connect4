@@ -1,0 +1,37 @@
+CONNECTFOUR - 
+1. Define required constants:
+    a. Define a style object, with keys of null, “-1”, “1”. Each key value will represent what color will display when player 1 (1) and player 2 (-1) select their square, while null will show an available square. 
+    b. Define how a win is found.
+2. Define required variables used to track the state of the game. 
+    a. Define Board: use an array of arrays to represent squares. Each nested array will represent a column of board.
+    b. Define Player Turn: define a value to represent player 1 (1) and player 2 (-1). 
+    c. Define Game Status:  'In progress', ‘Tie', ‘Win/loss’ 
+3. Store elements on the page that will be accessed in code more than once in variables to make code more concise, readable and performant.
+    a. Upon loading the app should - Initialize
+        i. Define player turn - start on player 1 (1)
+        ii. Have a clear board - each index of array set as null.
+        iii. Define gameStatus - as active (null)
+    b.Render state variables 
+        i. Board
+            - Loop over index of elements
+            - Use loop to find index to update
+            - Update index of array to player key (1 or -1) to set color of square. 
+        ii. Messages
+            -If game is active display message- ‘Its [player x] turn’, player x found through object 
+            -If there is a winner display message - "[Player X] Wins!"
+            -If there is a tie display message - "Its a tie! Play again!"
+4. Handle a player clicking a square
+    a. Create an Event Listener for ‘click’
+    b. Onclick, initialize "player move" sequence
+    c. Obtain the index of the column clicked. 
+        fill column in order. if no index is taken, start at 0. 
+    d. Update the board
+    e. Make square un-clickable once square is chosen
+    f. Get board status
+        i. If the game is still active, status = null, playerMove sequence continues.
+        ii. If a win or tie is found, display the corresponding message & 
+    g. Update player turn.
+5. When a player click’s the replay button, a new game will initialize. The initial game status will return. 
+
+
+
