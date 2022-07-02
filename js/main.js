@@ -15,10 +15,10 @@ let gameStatus;
 /*----- cached element references -----*/
 
 
-
 /*----- event listeners -----*/
 // event listener for click to register what column the user clicks in. 
-
+document.querySelector("#column").addEventListener('click', handleChoice);
+replayBtn.addEventListener("button").addEventListener('click',init);
 
 /*----- functions -----*/
 init();
@@ -38,6 +38,11 @@ function init() {
     render(); 
 }; 
 
+function handleChoice(){
+    //loop through the column that 
+
+};
+
 function render() {
     renderMessage();
     renderBoard();
@@ -54,5 +59,6 @@ function renderMessage() {
 }
 
 function renderBoard() { 
-    // create a loop that goes through board array. 
+    // create a loop that goes through board array. jtiou
 }
+
