@@ -74,14 +74,17 @@
 
    };
   function getGameStatus() {
-        checkBoard();
+        checkWin();
+        if (checkWin === true) return "WIN"
+        if !board.contains() return "T"
+        
     // if there is a winner by: (figure out how to find winner) return 
     // if board does not include 0s => return 't' 
     //if boardincludes '0s' => return null; 
   }  
   
   
-function checkBoard(board, value) {
+
     
     function checkVertical() {
         for (let i = 0; i < 5; i++)
@@ -103,20 +106,45 @@ function checkBoard(board, value) {
         &&board[4][i] === value
         )
         return true;
-    function checkHorizontal() { 
-    for (let i = 0; i < 5; i++)   
-    if ( board[i][0] === value
-        && board[i][1] === value
-        && board[i][2] === value
-        && board[i][3] === value
-        )
-        return true;
+    }
+    function checkHorizontal(board, value) { 
+        for (let i = 0; i < 5; i++)   
+        if (board[i][0] === value
+            && board[i][1] === value
+            && board[i][2] === value
+            && board[i][3] === value
+            )
+            return true;
+        if (board[i][1] === value
+            && board[i][2] === value
+            && board[i][3] === value
+            && board[i][4] === value
+            )
+            return true;
+        if (board[i][2] === value
+            && board[i][3] === value
+            && board[i][4] === value
+            && board[i][5] === value
+            )
+            return true;
+        if (board[i][3] === value
+            && board[i][4] === value
+            && board[i][5] === value
+            && board[i][6] === value
+            )
+            return true;
+        }
+    function checkVertical (board,){
+    for (let i = 0; i < 5; i++) {
+          for (let j = 0; j < 5; j++) {
+
+            }
+        }            
+    };
+
+function checkWin() {
+    checkHorizontal(board, value)
+    || checkVertical(board, value) 
+    || checkDiagonal(board, value)  
+    return 'WIN'
 }
-
-};
- 
-
-   
-
-
-
