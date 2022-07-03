@@ -1,40 +1,40 @@
     // /*----- constants -----*/
     // const COLOR_LOOKUP = { 
-    //     "1": 'white',
-    //     "-1": 'black',
-    //     null: 'grey'
+    //     "1": 'white', // player1 
+    //     "-1": 'black',// player2
+    //     "0": 'grey' // available space 
     // }
 
 
     // /*----- app's state (variables) -----*/
-    // let board; 
-    // let turn; 
-    // let gameStatus; 
+    let board; 
+    let turn; 
+    let gameStatus; 
 
     // /*----- cached element references -----*/
     // const msgEl = document.querySelector('h2');
-    // const squareEls = [...document.querySelectorAll("#board > #column")];
-    // const replayBtn = document.querySelector("button");
+
+    const replayBtn = document.querySelector("button");
 
 
     // /*----- event listeners -----*/
     // // event listener for click to register what column the user clicks in.
-    // document.getElementById('board').addEventListener('click', ); 
-    // replayBtn.addEventListener('click', init);
+    document.getElementById('board').addEventListener('click', handleChoice); 
+    replayBtn.addEventListener('click', init);
 
     /*----- functions -----*/
     init();
 
     function init() {
         board = [
-            [null, null, null, null, null, null], // column 1
-            [null, null, null, null, null, null], // column 2
-            [null, null, null, null, null, null], // column 3
-            [null, null, null, null, null, null], // column 4
-            [null, null, null, null, null, null], // column 5
-            [null, null, null, null, null, null], // column 6
-            [null, null, null, null, null, null], // column 7
-        ];
+            [0, 0, 0, 0, 0, 0], // column 1
+            [0, 0, 0, 0, 0, 0], // column 2
+            [0, 0, 0, 0, 0, 0], // column 3
+            [0, 0, 0, 0, 0, 0], // column 4
+            [0, 0, 0, 0, 0, 0], // column 5
+            [0, 0, 0, 0, 0, 0], // column 6
+            [0, 0, 0, 0, 0, 0], // column 7
+        ]    
         turn = 1; 
         gameStatus = null;
         render();  
@@ -42,71 +42,79 @@
 
     function render() {
         board.forEach(function(columnArr, columnIdx) {
-            columnArr.forEach(function (spaceValue, rowIdx) {
-                const spaceEl = document.getElementById(`${columnIdx}${rowIdx}`); 
-                ;           
+            columnArr.forEach(function(spaceValue, rowIdx) {
+                const spaceEl = document.getElementById(`c${columnIdx}r${rowIdx}`);        
             });
         });
-        handleDrop();
         renderMessage();
+        replayBtn.style.visibility = gameStatus ? 'visible' : 'hidden'; 
     };
 
-    function handleDrop() {};
+    function renderMessage(){
+        if (gameStatus === null) {
+                // create message for whose turn it is, 
+        } else if (gameStatus === 't') {
+                // create message for tie game
+        } else {
+            // create message for winner based on whose turn was last. include, 'rematch' - button will appear.
+        };
+    };
 
-    function renderMessage(){};
-    //     
-        
-    // 
-    // function renderMessage() { 
-    //     if (gameStatus === null) {
-    //         msgEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn]}"> ${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`
-    //     } else if (gameStatus === 1) {
-    //         msgEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn]}"> ${COLOR_LOOKUP[turn].toUpperCase()}</span> Wins!` ;
-    //     } else {
-    //         msgEl.innerHTML = `It's a tie! Re-match?`
-    // }
-    // }
+    function handleChoice(evt) {
+        // put a guard up to not all clicks in gaps and columns that are full, and spaces that have already been taken. 
+        renderDrop();
+        turn *= -1; 
+        board[idx] = renderDrop();
+        gameStatus = getGameStatus();
+    };
+    
 
-    // function handleChoice(evt){
-    //     // guard 
-    //     if ( 
-    //         gameStatus || 
-    //         !squareEls.includes(evt.target)
-    //     ) return; 
-    //     // idx depends column array 
+   function renderDrop() {
     //     const idx = squareEls.indexOf(evt.target);
-    //     // const idx = squareEls.indexOf();
-        
-    //     // var index = Array.prototype.slice.call(el.parentElement.children).indexOf(eve.target)
-    //     // const index = [...el.#column.#row].indexOf(eve.target)
-    //     for {
-    //             board[i][j].addEventListener('click', handleChoice);
-    //         }
-    //     }
-        
-    //     document.getElementById('board').addEventListener('click', handleChoice); 
-        
-        
-        
-        
-    //     board[idx] = turn;
-    //     board index knows who is clicking based current turn. 
-        
-        
-        
-        
-        
-        
-    //     gameStatus = getGameStatus();
-    //     turn *= -1; 
-    //     render(); 
-    // }
 
+   };
+  function getGameStatus() {
+        checkBoard();
+    // if there is a winner by: (figure out how to find winner) return 
+    // if board does not include 0s => return 't' 
+    //if boardincludes '0s' => return null; 
+  }  
+  
+  
+function checkBoard(board, value) {
+    
+    function checkVertical() {
+        for (let i = 0; i < 5; i++)
+        if ( board[0][i] === value
+        && board[1][i] === value
+        && board[2][i] === value
+        && board[3][i] === value
+        )
+        return true;
+        if ( board[1][i] === value
+        && board[2][i] === value
+        && board[3][i] === value
+        && board[4][i] === value
+        )
+        return true;
+        if (board[2][i] === value
+        && board[3][i] === value
+        && board[3][i] === value
+        &&board[4][i] === value
+        )
+        return true;
+    function checkHorizontal() { 
+    for (let i = 0; i < 5; i++)   
+    if ( board[i][0] === value
+        && board[i][1] === value
+        && board[i][2] === value
+        && board[i][3] === value
+        )
+        return true;
+}
 
-    // function getGameStatus() {; 
-    // }
+};
  
-
 
    
 
