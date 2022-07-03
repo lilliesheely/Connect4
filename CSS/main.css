@@ -11,8 +11,13 @@ body {
 
 #markers {
     display: grid;
-    width: ;
-}
+    width: 85vh; 
+    height: 12vh;
+    grid-template-columns: repeat(7, 12vmin);
+    gap: 1vh; 
+    cursor: pointer;
+    margin-bottom: 1vh;
+    }
 #board { 
     display: grid;
     height: 70vh;
@@ -26,8 +31,16 @@ body {
 #board > div {
     background-color: #FFC43D;
     border-radius: 25%;
+
+}
+#markers > div {
+    background-color: rgb(50, 188, 165);
+    border-radius: 25%;
+
 }
 
 button {
     margin-top: 15px;
 }
+
+#markers > div

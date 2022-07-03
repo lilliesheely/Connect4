@@ -20,7 +20,6 @@
     // /*----- event listeners -----*/
     // // event listener for click to register what column the user clicks in.
     document.getElementById('board').addEventListener('click', handleChoice); 
-    document.getElementById('markers').addEventListener('click', handleChoice); 
     replayBtn.addEventListener('click', init);
 
     /*----- functions -----*/
@@ -28,13 +27,13 @@
 
     function init() {
         board = [
-            [0, 0, 0, 0, 0, 0], // column 1
+            [1, 0, 0, 0, 0, 1], // column 1
             [0, 0, 0, 0, 0, 0], // column 2
             [0, 0, 0, 0, 0, 0], // column 3
             [0, 0, 0, 0, 0, 0], // column 4
             [0, 0, 0, 0, 0, 0], // column 5
             [0, 0, 0, 0, 0, 0], // column 6
-            [0, 0, 0, 0, 0, 0], // column 7
+            [1, 0, 0, 0, 0, -1], // column 7
         ]    
         turn = 1; 
         gameStatus = null;
