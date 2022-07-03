@@ -9,7 +9,10 @@ body {
     font-family: "Nunito", sans-serif; 
 }
 
-
+#markers {
+    display: grid;
+    width: ;
+}
 #board { 
     display: grid;
     height: 70vh;

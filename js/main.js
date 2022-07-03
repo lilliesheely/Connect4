@@ -1,9 +1,9 @@
     // /*----- constants -----*/
-    // const COLOR_LOOKUP = { 
-    //     "1": 'white', // player1 
-    //     "-1": 'black',// player2
-    //     "0": 'grey' // available space 
-    // }
+    const COLOR_LOOKUP = { 
+        "1": 'white', // player1 
+        "-1": 'black',// player2
+        "0": 'grey' // available space 
+    }
 
 
     // /*----- app's state (variables) -----*/
@@ -15,11 +15,12 @@
     // const msgEl = document.querySelector('h2');
 
     const replayBtn = document.querySelector("button");
-
+    const spaceEls = [...document.querySelectorAll("#board > div")]
 
     // /*----- event listeners -----*/
     // // event listener for click to register what column the user clicks in.
     document.getElementById('board').addEventListener('click', handleChoice); 
+    document.getElementById('markers').addEventListener('click', handleChoice); 
     replayBtn.addEventListener('click', init);
 
     /*----- functions -----*/
@@ -43,7 +44,8 @@
     function render() {
         board.forEach(function(columnArr, columnIdx) {
             columnArr.forEach(function(spaceValue, rowIdx) {
-                const spaceEl = document.getElementById(`c${columnIdx}r${rowIdx}`);        
+                const spaceEl = document.getElementById(`c${columnIdx}r${rowIdx}`);   
+                spaceEl.style.backgroundColor = COLOR_LOOKUP[spaceValue];           
             });
         });
         renderMessage();
@@ -64,8 +66,10 @@
         // put a guard up to not all clicks in gaps and columns that are full, and spaces that have already been taken. 
         renderDrop();
         turn *= -1; 
-        board[idx] = renderDrop();
+        const idx = spaceEls.indexOf(evt.target);
+        spaceValue[idx] = turn;
         gameStatus = getGameStatus();
+
     };
     
 
@@ -73,78 +77,83 @@
     //     const idx = squareEls.indexOf(evt.target);
 
    };
-  function getGameStatus() {
-        checkWin();
-        if (checkWin === true) return "WIN"
-        if !board.contains() return "T"
+//   function getGameStatus() {
+//         checkWin();
+//         if (checkWin === true) return "WIN"
+//         if !board.contains() return "T"
         
     // if there is a winner by: (figure out how to find winner) return 
     // if board does not include 0s => return 't' 
     //if boardincludes '0s' => return null; 
-  }  
+//   }  
   
-  
+function getGameStatus() {};
+//   function gameStatus() {
+//     checkHorizontal(board, value)
+//     || checkVertical(board, value) 
+//     || checkDiagonal(board, value)  
+//     return 'WIN'
+//     if () // game board doesn't include '0'then return 'T"
+//     else return // null
+// }
+ 
 
     
-    function checkVertical() {
-        for (let i = 0; i < 5; i++)
-        if ( board[0][i] === value
+function checkVertical() {
+    for (let i = 0; i < 5; i++)
+    if ( board[0][i] === value
         && board[1][i] === value
         && board[2][i] === value
         && board[3][i] === value
         )
         return true;
-        if ( board[1][i] === value
+    if ( board[1][i] === value
         && board[2][i] === value
         && board[3][i] === value
         && board[4][i] === value
         )
         return true;
-        if (board[2][i] === value
+    if (board[2][i] === value
         && board[3][i] === value
         && board[3][i] === value
         &&board[4][i] === value
         )
         return true;
-    }
-    function checkHorizontal(board, value) { 
-        for (let i = 0; i < 5; i++)   
-        if (board[i][0] === value
-            && board[i][1] === value
-            && board[i][2] === value
-            && board[i][3] === value
-            )
-            return true;
-        if (board[i][1] === value
-            && board[i][2] === value
-            && board[i][3] === value
-            && board[i][4] === value
-            )
-            return true;
-        if (board[i][2] === value
-            && board[i][3] === value
-            && board[i][4] === value
-            && board[i][5] === value
-            )
-            return true;
-        if (board[i][3] === value
-            && board[i][4] === value
-            && board[i][5] === value
-            && board[i][6] === value
-            )
-            return true;
-        }
-    function checkVertical (board,){
-    for (let i = 0; i < 5; i++) {
-          for (let j = 0; j < 5; j++) {
-
-            }
-        }            
-    };
-
-function checkWin() {
-    checkHorizontal(board, value)
-    || checkVertical(board, value) 
-    || checkDiagonal(board, value)  
-    return 'WIN'
 }
+
+function checkHorizontal(board, value) { 
+    for (let i = 0; i < 5; i++)   
+    if (board[i][0] === value
+        && board[i][1] === value
+        && board[i][2] === value
+        && board[i][3] === value
+        )
+        return true;
+    if (board[i][1] === value
+        && board[i][2] === value
+        && board[i][3] === value
+        && board[i][4] === value
+        )
+        return true;
+    if (board[i][2] === value
+        && board[i][3] === value
+        && board[i][4] === value
+        && board[i][5] === value
+        )
+        return true;
+    if (board[i][3] === value
+        && board[i][4] === value
+        && board[i][5] === value
+        && board[i][6] === value
+        )
+        return true;
+    }
+
+function checkVertical (board,){
+for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+
+        }
+    }            
+};
+
