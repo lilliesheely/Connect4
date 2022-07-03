@@ -9,11 +9,12 @@ body {
     font-family: "Nunito", sans-serif; 
 }
 
-#markers {
+#slots {
     display: grid;
     width: 85vh; 
     height: 12vh;
     grid-template-columns: repeat(7, 12vmin);
+    grid-template-rows: 11vmin;
     gap: 1vh; 
     cursor: pointer;
     margin-bottom: 1vh;
@@ -25,22 +26,18 @@ body {
     grid-template-columns: repeat(7, 12vmin);
     grid-template-rows: repeat(6, 11vmin);
     cursor: pointer;
-    gap: 1vh;
-   
+    gap: 1vh; 
 }
 #board > div {
     background-color: #FFC43D;
     border-radius: 25%;
 
 }
-#markers > div {
-    background-color: rgb(50, 188, 165);
+#slots > div {
+    background-color: rgb(40, 162, 142);
     border-radius: 25%;
-
 }
-
 button {
     margin-top: 15px;
 }
 
-#markers > div
