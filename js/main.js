@@ -13,12 +13,12 @@
 
     // /*----- cached element references -----*/
     // const msgEl = document.querySelector('h2');
-    const slotEls = [...document.querySelectorAll("slots > div")];
+    const slotEls = [...document.querySelectorAll("#slots > div")];
     const replayBtn = document.querySelector("button");
 
     // /*----- event listeners -----*/
-    document.getElementById('slots').addEventListener('click', handleChoice);
-    replayBtn.addEventListener('click', init);
+    document.getElementById('slots').addEventListener('click', handleDrop);
+    //replayBtn.addEventListener('click', init);
 
     /*----- functions -----*/
     init();
@@ -31,7 +31,7 @@
             [0, 0, 0, 0, 0, 0], // column 4
             [0, 0, 0, 0, 0, 0], // column 5
             [0, 0, 0, 0, 0, 0], // column 6
-            [0, 0, 0, 0, 0, 0], // column 7
+            [0, 0, 0, 0, 0, 1], // column 7
         ]    
         turn = 1; 
         gameStatus = null;
@@ -49,20 +49,22 @@
         replayBtn.style.visibility = gameStatus ? 'visible' : 'hidden'; 
     };
 
-    function renderMessage(){
-        if (gameStatus === null) {
-                // create message for whose turn it is, 
-        } else if (gameStatus === 't') {
-                // create message for tie game
-        } else {
-            // create message for winner based on whose turn was last. include, 'rematch' - button will appear.
-        };
-    };
 
-    function handleChoice(evt) {
-        const columnIndex = slotEls.indexOf(evt.target);
-        if (columnIndex === -1) return; // guard so that event must happen within the slots array
-        const columnArr = board[columnIdx]; 
+
+    // function renderMessage(){
+    //     if (gameStatus === null) {
+    //             // create message for whose turn it is, 
+    //     } else if (gameStatus === 't') {
+    //             // create message for tie game
+    //     } else {
+    //         // create message for winner based on whose turn was last. include, 'rematch' - button will appear.
+    //     };
+    // };
+
+    function handleDrop(evt) {
+        const columnSlotIdx = slotEls.indexOf(evt.target);
+        if (columnSlotIdx === -1) return; // guard so that event must happen within the slots array
+        const columnArr = board[columnSlotIdx]; 
         if (!columnArr.includes(0)) return;
         // ingore a click if the column includes 
         const rowIdx = columnArr.indexOf(0);
@@ -83,73 +85,73 @@
     //if boardincludes '0s' => return null; 
 //   }  
   
-// function getGameStatus() {};
-// //   function gameStatus() {
-// //     checkHorizontal(board, value)
-// //     || checkVertical(board, value) 
-// //     || checkDiagonal(board, value)  
-// //     return 'WIN'
-// //     if () // game board doesn't include '0'then return 'T"
-// //     else return // null
-// // }
+function getGameStatus() {};
+//   function gameStatus() {
+//     checkHorizontal(board, value)
+//     || checkVertical(board, value) 
+//     || checkDiagonal(board, value)  
+//     return 'WIN'
+//     if () // game board doesn't include '0'then return 'T"
+//     else return // null
+// }
  
 
     
-// function checkVertical() {
-//     for (let i = 0; i < 5; i++)
-//     if ( board[0][i] === value
-//         && board[1][i] === value
-//         && board[2][i] === value
-//         && board[3][i] === value
-//         )
-//         return true;
-//     if ( board[1][i] === value
-//         && board[2][i] === value
-//         && board[3][i] === value
-//         && board[4][i] === value
-//         )
-//         return true;
-//     if (board[2][i] === value
-//         && board[3][i] === value
-//         && board[3][i] === value
-//         &&board[4][i] === value
-//         )
-//         return true;
-// }
+function checkVertical() {
+    for (let i = 0; i < 5; i++)
+    if ( board[0][i] === value
+        && board[1][i] === value
+        && board[2][i] === value
+        && board[3][i] === value
+        )
+        return true;
+    if ( board[1][i] === value
+        && board[2][i] === value
+        && board[3][i] === value
+        && board[4][i] === value
+        )
+        return true;
+    if (board[2][i] === value
+        && board[3][i] === value
+        && board[3][i] === value
+        &&board[4][i] === value
+        )
+        return true;
+}
 
-// function checkHorizontal(board, value) { 
-//     for (let i = 0; i < 5; i++)   
-//     if (board[i][0] === value
-//         && board[i][1] === value
-//         && board[i][2] === value
-//         && board[i][3] === value
-//         )
-//         return true;
-//     if (board[i][1] === value
-//         && board[i][2] === value
-//         && board[i][3] === value
-//         && board[i][4] === value
-//         )
-//         return true;
-//     if (board[i][2] === value
-//         && board[i][3] === value
-//         && board[i][4] === value
-//         && board[i][5] === value
-//         )
-//         return true;
-//     if (board[i][3] === value
-//         && board[i][4] === value
-//         && board[i][5] === value
-//         && board[i][6] === value
-//         )
-//         return true;
-//     }
+function checkHorizontal(board, value) { 
+    for (let i = 0; i < 5; i++)   
+    if (board[i][0] === value
+        && board[i][1] === value
+        && board[i][2] === value
+        && board[i][3] === value
+        )
+        return true;
+    if (board[i][1] === value
+        && board[i][2] === value
+        && board[i][3] === value
+        && board[i][4] === value
+        )
+        return true;
+    if (board[i][2] === value
+        && board[i][3] === value
+        && board[i][4] === value
+        && board[i][5] === value
+        )
+        return true;
+    if (board[i][3] === value
+        && board[i][4] === value
+        && board[i][5] === value
+        && board[i][6] === value
+        )
+        return true;
+    }
 
-// function checkVertical (board,){
-// for (let i = 0; i < 5; i++) {
-//         for (let j = 0; j < 5; j++) {
+function checkVertical (board,){
+for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
 
-//         }
-//     }            
-// };
+        }
+    }            
+};
 
