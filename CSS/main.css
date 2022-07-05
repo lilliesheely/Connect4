@@ -34,8 +34,12 @@ body {
 
 }
 #slots > div {
-    background-color: rgb(40, 162, 142);
+    background-color: rgb(241, 38, 187);
     border-radius: 25%;
+    
+}
+#slots > div:hover {
+    background-color: limegreen;
 }
 button {
     margin-top: 15px;
