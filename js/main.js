@@ -125,16 +125,16 @@ function checkHorzWin(colIdx, rowIdx, player) {
 function checkDiagWinLeft(colIdx, rowIdx) {
         const player = board[colIdx][rowIdx];
         let count = 1;
-        let idx1 = colIdx - 1; 
-        let idx2 = rowIdx + 1; 
+        let idx1 = colIdx - (colIdx >= 1) ? 1 : 0; 
+        let idx2 = rowIdx + (rowIdx < board[0].length - 1) ? 1 : 0;  
      
         while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) {
             count++; 
             idx1--;
             idx2++;
         }
-        idx1 = colIdx + 1; 
-        idx2 = rowIdx - 1; 
+        idx1 = colIdx + (colIdx < board.length - 1) ? 1 : 0;
+        idx2 = rowIdx - (rowIdx >= 1) ? 1 : 0;
         while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) {
             count++;
             idx1++;
@@ -146,26 +146,26 @@ function checkDiagWinLeft(colIdx, rowIdx) {
     }
     function checkDiagWinRight(colIdx, rowIdx) {
         const player = board[colIdx][rowIdx];
+        debugger; 
         let count = 1;
-        let idx1 = colIdx + 1; //here
-        let idx2 = rowIdx - 1; //here
+        let idx1 = colIdx + ((colIdx < board.length - 1) ? 1 : 0);
+        let idx2 = rowIdx - ((rowIdx >= 1) ? 1 : 0);
      
-        while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) { // far right issue
+        while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) { // far right issue
             count++; 
-            idx1--;
-            idx2++;
+            idx1++;
+            idx2--;
         }
-        idx1 = colIdx - 1;  //here
-        idx2 = rowIdx - 1; 
-        while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) { //far left issue
+        idx1 = colIdx - ((colIdx >= 1) ? 1 : 0);
+        idx2 = rowIdx + ((rowIdx < board[0].length - 1) ? 1 : 0);  
+        while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) { //far left issue
             console.log(idx1)
             count++;
             idx1--; //here 
-            idx2--; 
+            idx2++; 
         }
     
-        console.log(idx1)
-        console.log(idx2)
+        console.log(count)
         return count >= 4 ? winner = true : null  
        
     }
