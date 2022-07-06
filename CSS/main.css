@@ -39,7 +39,7 @@ body {
     
 }
 #slots > div:hover {
-    background-color: limegreen;
+    background-color: rgb(205, 161, 50);
 }
 button {
     margin-top: 15px;
