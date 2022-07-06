@@ -39,6 +39,7 @@
         turn = 1; 
         gameStatus = null;
         render();  
+        winner = null; 
     }; 
 
     function render() {
@@ -82,7 +83,8 @@
         const player = board[colIdx][rowIdx];
         return checkVertWin(colIdx, rowIdx, player) || 
         checkHorzWin(colIdx, rowIdx, player) ||
-        checkDiagWin(colIdx, rowIdx, player);
+        checkDiagWin(colIdx, rowIdx, player) ||
+        checkDiagWin2(colIdx, rowIdx, player);
     }
 
 
@@ -121,13 +123,63 @@ function checkHorzWin(colIdx, rowIdx, player) {
               && board[6][i] === player
           ) return true;
         } 
-    // return count === 4 ? winner = true : null
-};
-console.log(checkHorzWin)
-
-function checkDiagWin(colIdx, rowIdx, player) {
     
 };
+
+function checkDiagWin(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+    let j = rowIdx; 
+    let i = colIdx; 
+    let count = 1; 
+    for (let i=colArr; i < colArr.length; i--) {
+        for (let j= 0; j < colArr[i].length; j--){
+                count++; 
+        }
+    }
+    console.log(count)
+    return count === 4 ? winner = true : null  
+    }
+            
+function checkDiagWin1(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+
+    let count = 1; 
+    for (let i=0; i < colArr.length; i++) {
+        for (let j= 0; j < colArr[i]; j++){
+                count++; 
+            }
+ 
+        }
+        console.log(count)
+    return count === 4 ? winner = true : null  
+    }    
+//     
+   
+
+
+//     const colArr = board[colIdx];
+//     let count = 1;
+
+//     rowIdx--;
+//     while (colArr[rowIdx] === player && rowIdx >= 0) {
+//         count++;
+//         rowIdx--;
+//     }    
+//   return count === 4 ? winner = true : null // here
+
+
+
+function checkDiagWin2(colIdx, rowIdx, player){; 
+// const colArr = board[colIdx];
+// let count = 1; 
+// for (let i =0; i < 6; i--) {
+//     for (let j=0; j < 6; j--) {
+//         if (player === i && player === j)
+//         count++;
+//               }
+// }
+// return count >= 4 ? winner = true : null
+}
     
 function getGameStatus(){
     let flatBoard = board.flat(2); 
