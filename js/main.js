@@ -70,7 +70,7 @@
 
     function renderMessage(player){
         if (gameStatus === null) {
-                messageEl.innerHTML = `NEXT PLAYERS TURN`;
+                messageEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn]}"> ${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
         } else if (gameStatus === 't') {
                 messageEl.innerHTML = `Tie Game! Play again!`;
         } else {
@@ -91,7 +91,7 @@ function checkVertWin(colIdx, rowIdx, player) {
     let count = 1;
 
     rowIdx--;
-    while(colArr[rowIdx] === player && rowIdx >= 0) {
+    while (colArr[rowIdx] === player && rowIdx >= 0) {
         count++;
         rowIdx--;
     }    
@@ -99,13 +99,35 @@ function checkVertWin(colIdx, rowIdx, player) {
 }
     
 function checkHorzWin(colIdx, rowIdx, player) {
-  
-    
-
-//   return count === 4 ? winner : null
+        for(i = 0; i < 5; ++i){
+          if (board[0][i] === player 
+              && board[1][i] === player
+              && board[2][i] === player
+              && board[3][i] === player
+          ) return true;
+          if (board[1][i] === player 
+              && board[2][i] === player
+              && board[3][i] === player
+              && board[4][i] === player
+          ) return true;
+          if (board[2][i] === player 
+              && board[3][i] === player
+              && board[4][i] === player
+              && board[5][i] === player
+          ) return true;
+          if (board[3][i] === player 
+              && board[4][i] === player
+              && board[5][i] === player
+              && board[6][i] === player
+          ) return true;
+        } 
+    // return count === 4 ? winner = true : null
 };
+console.log(checkHorzWin)
 
-function checkDiagWin(colIdx, rowIdx, player) {};
+function checkDiagWin(colIdx, rowIdx, player) {
+    
+};
     
 function getGameStatus(){
     let flatBoard = board.flat(2); 
@@ -113,4 +135,3 @@ function getGameStatus(){
     if (winner === true) return 'w'; 
    return null;
 }
-
