@@ -148,14 +148,14 @@ function checkDiagWinLeft(colIdx, rowIdx) {
         let idx1 = colIdx + 1; 
         let idx2 = rowIdx + 1;  
      
-        while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) {
+        while (idx1 < board.length && idx2 < board[0].length && board[idx1][idx2] === player) {
             count++; 
             idx1++;
             idx2++;
         }
         idx1 = colIdx - 1;
         idx2 = rowIdx - 1;
-        while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) {
+        while (idx1 >= 0 && idx2 >= 0 && board[idx1][idx2] === player) {
             count++;
             idx1--;
             idx2--; 
