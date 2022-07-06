@@ -1,10 +1,9 @@
     // /*----- constants -----*/
     const COLOR_LOOKUP = { 
-        "1": 'white', // player1 
-        "-1": 'black',// player2
-        "0": 'yellow' // available space 
+        "1": 'white', 
+        "-1": 'black',
+        "0": 'yellow'
     }
-
 
     // /*----- app's state (variables) -----*/
     let board; 
@@ -12,12 +11,10 @@
     let gameStatus; 
     let winner = null;
  
-
     // /*----- cached element references -----*/
     const slotEls = [...document.querySelectorAll("#slots > div")];
     const replayBtn = document.querySelector("button");
     const messageEl = document.querySelector("h2");
-
 
     // /*----- event listeners -----*/
     document.getElementById('slots').addEventListener('click', handleChoice);
@@ -28,13 +25,13 @@
 
     function init() {
         board = [
-            [0, 0, 0, 0, 0, 0], // column 1
-            [0, 0, 0, 0, 0, 0], // column 2
-            [0, 0, 0, 0, 0, 0], // column 3
-            [0, 0, 0, 0, 0, 0], // column 4
-            [0, 0, 0, 0, 0, 0], // column 5
-            [0, 0, 0, 0, 0, 0], // column 6
-            [0, 0, 0, 0, 0, 0], // column 7
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
         ]    
         turn = 1; 
         gameStatus = null;
@@ -55,21 +52,19 @@
 
     function handleChoice(evt) {
         const colIdx = slotEls.indexOf(evt.target);
-        if (colIdx === -1 || winner === true) return; // guard so that event must happen within the slots array
+        if (colIdx === -1 || winner === true) return;
         const columnArr = board[colIdx]; 
-        if (!columnArr.includes(0)) return;
-        // ingore a click if the column includes, CAN REMOVE THIS IF WE PUT A HANDLE MARKERS (IF NO ZEROS EXISTS, REMOVE SLOT SO THAT YOU CAN'T ADD A MOVE THERE. )
         const rowIdx = columnArr.indexOf(0);
         columnArr[rowIdx] = turn; 
         winner = checkWin(colIdx,rowIdx);
-
         console.log(winner)
         turn *= -1;
         gameStatus = getGameStatus();
+        renderSlots();
         render();
     };
 
-    function renderMessage(player){
+function renderMessage(player){
         if (gameStatus === null) {
                 messageEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn]}"> ${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
         } else if (gameStatus === 't') {
@@ -77,15 +72,15 @@
         } else {
              messageEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn*-1]}"> ${COLOR_LOOKUP[turn*-1].toUpperCase()}</span> WINS! Rematch?` // 
         };
-    };
+};
 
-    function checkWin(colIdx, rowIdx) {
+function checkWin(colIdx, rowIdx) {
         const player = board[colIdx][rowIdx];
         return checkVertWin(colIdx, rowIdx, player) || 
         checkHorzWin(colIdx, rowIdx, player) ||
-        checkDiagWin(colIdx, rowIdx, player) ||
-        checkDiagWin2(colIdx, rowIdx, player);
-    }
+        checkDiagWinLeft(colIdx, rowIdx) ||
+        checkDiagWinRight(colIdx, rowIdx);
+};
 
 
 function checkVertWin(colIdx, rowIdx, player) {
@@ -126,64 +121,70 @@ function checkHorzWin(colIdx, rowIdx, player) {
     
 };
 
-function checkDiagWin(colIdx, rowIdx, player) {
-    const colArr = board[colIdx];
-    let j = rowIdx; 
-    let i = colIdx; 
-    let count = 1; 
-    for (let i=colArr; i < colArr.length; i--) {
-        for (let j= 0; j < colArr[i].length; j--){
-                count++; 
+
+function checkDiagWinLeft(colIdx, rowIdx) {
+        const player = board[colIdx][rowIdx];
+        let count = 1;
+        let idx1 = colIdx - 1; 
+        let idx2 = rowIdx + 1; 
+     
+        while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) {
+            count++; 
+            idx1--;
+            idx2++;
         }
-    }
-    console.log(count)
-    return count === 4 ? winner = true : null  
-    }
-            
-function checkDiagWin1(colIdx, rowIdx, player) {
-    const colArr = board[colIdx];
-
-    let count = 1; 
-    for (let i=0; i < colArr.length; i++) {
-        for (let j= 0; j < colArr[i]; j++){
-                count++; 
-            }
- 
+        idx1 = colIdx + 1; 
+        idx2 = rowIdx - 1; 
+        while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) {
+            count++;
+            idx1++;
+            idx2--; 
         }
-        console.log(count)
-    return count === 4 ? winner = true : null  
-    }    
-//     
-   
-
-
-//     const colArr = board[colIdx];
-//     let count = 1;
-
-//     rowIdx--;
-//     while (colArr[rowIdx] === player && rowIdx >= 0) {
-//         count++;
-//         rowIdx--;
-//     }    
-//   return count === 4 ? winner = true : null // here
-
-
-
-function checkDiagWin2(colIdx, rowIdx, player){; 
-// const colArr = board[colIdx];
-// let count = 1; 
-// for (let i =0; i < 6; i--) {
-//     for (let j=0; j < 6; j--) {
-//         if (player === i && player === j)
-//         count++;
-//               }
-// }
-// return count >= 4 ? winner = true : null
-}
+        // console.log(idx1)
+        // console.log(idx2)
+        return count >= 4 ? winner = true : null  
+    }
+    function checkDiagWinRight(colIdx, rowIdx) {
+        const player = board[colIdx][rowIdx];
+        let count = 1;
+        let idx1 = colIdx + 1; //here
+        let idx2 = rowIdx - 1; //here
+     
+        while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) { // far right issue
+            count++; 
+            idx1--;
+            idx2++;
+        }
+        idx1 = colIdx - 1;  //here
+        idx2 = rowIdx - 1; 
+        while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === player) { //far left issue
+            console.log(idx1)
+            count++;
+            idx1--; //here 
+            idx2--; 
+        }
     
-function getGameStatus(){
+        console.log(idx1)
+        console.log(idx2)
+        return count >= 4 ? winner = true : null  
+       
+    }
+
+//     console.log(idx1)
+//     console.log(idx2)
+//     return count >= 2 ? winner = true : null  
+   
+// }
+       
+function getGameStatus() {
     let flatBoard = board.flat(2); 
-    if (!flatBoard.includes(0)) return 't'; // game board doesn't include '0'then return 'T"
+    if (!flatBoard.includes(0)) return 't'; 
     if (winner === true) return 'w'; 
    return null;
+}
+
+function renderSlots () {
+    slotEls.forEach(function(slotEl, colIdx) {
+        slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'; 
+    });
 }
