@@ -173,8 +173,6 @@ function getGameStatus() {
 function renderSlots () {
     slotEls.forEach(function(slotEl, colIdx) {
         slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'; 
-        slotEl.style.visibility = gameStatus === 'w' ? 'hidden' : 'visible';
-    });
-
+    }) 
 };
 
