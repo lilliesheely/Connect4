@@ -44,16 +44,22 @@ body {
 }
 #slots > div {
     background-color: transparent;
-    background: url("https://i.imgur.com/9IiciIi.png?1");
-    background-repeat: no-repeat;
-    
- 
-    
+    background: url("https://i.imgur.com/ZZseGjP.png?1");
+    background-repeat: no-repeat;   
 }
 #slots > div:hover {
-    background-color: rgb(205, 161, 50);
+    transition: transform 150ms ease-in;
+    transform: scale(0.9);
 }
 button {
     margin-top: 15px;
 }
 
+h1 {
+    color: 
+      #bcff8c;
+  }
+  h2 {
+    color: 
+      #bcff8c
+  }
