@@ -1,8 +1,9 @@
 # HATCHFOUR
-Hatchfour dinosaur take on the traditional ConnectFour game. Hatchfour  is a 2-person game, where the players take turn to try and hatch their dinosaurs to create 4 in a row! A player can win by getting 4 dinosaurs in a row, horizonatally, vertically, & diagonally. 
+Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. Hatchfour is a 2-person game, where the players take turn to try and hatch their dinosaurs to create 4 in a row! A player can win by getting 4 of their dinosaur in a row: horizonatally, vertically, or diagonally. Once the game is over by either a win or tie, it can be reset by selecting the 'Play Again' button.
 
 ## Screenshot
-![Screenshot4](https://i.imgur.com/33OUixj.png2)
+![Screenshot](https://i.imgur.com/fbAV6Au.png?1)
+![Screenshot](https://i.imgur.com/Q9irV2U.png?2)
 
 ## Built With
 - HTML
