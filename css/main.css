@@ -25,7 +25,7 @@ body {
     gap: 1vh; 
     cursor: pointer;
     margin-left: 7vh;
-    margin-bottom: -7vh;
+    margin-bottom: -40px;
 }
 
     #board { 
@@ -35,7 +35,7 @@ body {
     grid-template-columns: repeat(7, 11vh);
     grid-template-rows: repeat(6, 9vh);
     gap: 1vh; 
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 5%;
 }
 
@@ -81,3 +81,4 @@ button {
     font-family: "Nunito", sans-serif; 
     margin-bottom: 2vh;
 }
+

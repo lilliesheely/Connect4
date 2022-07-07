@@ -98,7 +98,7 @@ function checkVertWin(colIdx, rowIdx, player) {
         count++;
         rowIdx--;
     }    
-  return count === 4 ? winner = true : null; 
+    return count === 4 ? winner = true : null; 
 };
     
 function checkHorzWin(colIdx, rowIdx) {
@@ -110,6 +110,7 @@ function checkHorzWin(colIdx, rowIdx) {
         count++; 
         idx++; 
     }
+    
     idx = colIdx - 1; 
     while (idx >= 0 && board[idx][rowIdx] === player) {
         count++; 
@@ -172,6 +173,8 @@ function getGameStatus() {
 function renderSlots () {
     slotEls.forEach(function(slotEl, colIdx) {
         slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'; 
+        slotEl.style.visibility = gameStatus === 'w' ? 'hidden' : 'visible';
     });
+
 };
 
