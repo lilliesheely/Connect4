@@ -59,20 +59,26 @@ function handleChoice(evt) {
     columnArr[rowIdx] = turn; 
     winner = checkWin(colIdx,rowIdx);
     console.log(winner)
+    renderMessage();
     turn *= -1;
     gameStatus = getGameStatus();
     render();
 };
 
 function renderMessage(){
-        if (gameStatus === null) {
-                messageEl.innerHTML = `T-Rex's Turn!`;
-        } else if (gameStatus === 't') {
-                messageEl.innerHTML = `Tie Game! Play again!`;
-        } else {
-             messageEl.innerHTML = `<span style = "color: ${IMAGE_LOOKUP[turn*-1]}"> ${IMAGE_LOOKUP[turn*-1].toUpperCase()}</span> WINS! Rematch?` // 
-        };
-};
+    if (gameStatus === null && turn === 1) {
+        messageEl.innerHTML = `T-Rex's Turn!`;
+    } else if (gameStatus === null && turn === -1) {
+        messageEl.innerHTML = `Stegosaurus' Turn!`;
+    } else if (gameStatus === 't') {
+        messageEl.innerHTML = `Tie Game! Play again!`;
+    } else if (gameStatus === 'w' && turn === -1) {
+        messageEl.innerHTML = ` T-REX WINS! Rematch?`; 
+    } else if (gameStatus === 'w' && turn === 1) { 
+        messageEl.innerHTML = ` STEGOSAURUS WINS! Rematch?`;
+    }
+}
+
 
 function checkWin(colIdx, rowIdx) {
         const player = board[colIdx][rowIdx];
