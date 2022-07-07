@@ -2,6 +2,11 @@
 Hatchfour is a 2-person game, where the players take turn to try and hatch their dinosaurs to create 4 in a row! A player can win by getting 4 dinosaurs in a row, horizonatally, vertically, & diagonally. 
 
 ## Screenshot
+![Screenshot1](https://i.imgur.com/vXrBLmU.png)
+![Screenshot2](https://i.imgur.com/EoSdoc6.png)
+![Screenshot3](https://i.imgur.com/XlhGPjj.png)
+![Screenshot4](https://i.imgur.com/33OUixj.png)
+
 [Slots](https://i.imgur.com/x2RHFrt.png?2),
 [Eggs](https://i.imgur.com/utasL2x.png?3),
 [Background Image](https://i.imgur.com/4J6GeEc.jpg),
