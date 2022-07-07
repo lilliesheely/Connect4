@@ -3,13 +3,13 @@ const IMAGE_LOOKUP = {
     "1": "url(https://i.imgur.com/YJOzxFl.png?2)", 
     "-1": "url(https://i.imgur.com/uenhlcC.png?1)",
     "0": ''
-};
+}
 
 // /*----- app's state (variables) -----*/
 let board; 
 let turn; 
 let gameStatus; 
-let winner = null;
+let winner;
  
 // /*----- cached element references -----*/
 const slotEls = [...document.querySelectorAll("#slots > div")];
@@ -35,9 +35,9 @@ function init() {
     ]    
     turn = 1; 
     gameStatus = null;
-    render();  
     winner = null; 
-}; 
+    render();  
+} 
 
 function render() {
     board.forEach(function(columnArr, columnIdx) {
@@ -49,7 +49,7 @@ function render() {
     renderMessage();
     renderSlots();
     replayBtn.style.visibility = gameStatus ? 'visible' : 'hidden'; 
-};
+}
 
 function handleChoice(evt) {
     const colIdx = slotEls.indexOf(evt.target);
@@ -63,7 +63,7 @@ function handleChoice(evt) {
     turn *= -1;
     gameStatus = getGameStatus();
     render();
-};
+}
 
 function renderMessage(){
     if (gameStatus === null && turn === 1) {
@@ -79,33 +79,37 @@ function renderMessage(){
     }
 }
 
+function renderSlots() {
+    slotEls.forEach(function(slotEl, colIdx) {
+        slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'
+    if (gameStatus === 't' || gameStatus === 'w') {
+            slotEl.style.visibility = "hidden"};   
+    }); 
+}
 
 function checkWin(colIdx, rowIdx) {
-        const player = board[colIdx][rowIdx];
-        return checkVertWin(colIdx, rowIdx, player) || 
-        checkHorzWin(colIdx, rowIdx) ||
-        checkDiagWinLeft(colIdx, rowIdx) ||
-        checkDiagWinRight(colIdx, rowIdx);
-};
-
+    const player = board[colIdx][rowIdx];
+    return checkVertWin(colIdx, rowIdx, player) || 
+    checkHorzWin(colIdx, rowIdx, player) ||
+    checkDiagWinLeft(colIdx, rowIdx, player) ||
+    checkDiagWinRight(colIdx, rowIdx, player);
+}
 
 function checkVertWin(colIdx, rowIdx, player) {
-    const colArr = board[colIdx];
     let count = 1;
 
     rowIdx--;
-    while (colArr[rowIdx] === player && rowIdx >= 0) {
+    while (board[colIdx][rowIdx] === player && rowIdx >= 0) {
         count++;
         rowIdx--;
     }    
     return count === 4 ? winner = true : null; 
-};
+}
     
-function checkHorzWin(colIdx, rowIdx) {
-    const player = board[colIdx][rowIdx];
+function checkHorzWin(colIdx, rowIdx, player) {
     let count = 1; 
-    let idx = colIdx + 1; 
     
+    let idx = colIdx + 1; 
     while (idx < board.length && board[idx][rowIdx] === player) { 
         count++; 
         idx++; 
@@ -117,15 +121,13 @@ function checkHorzWin(colIdx, rowIdx) {
         idx--; 
     } 
     return count >= 4 ? winner = true : null;
-};
+}
 
-
-function checkDiagWinLeft(colIdx, rowIdx) {
-    const player = board[colIdx][rowIdx];
+function checkDiagWinLeft(colIdx, rowIdx, player) {
     let count = 1;
+    
     let idx1 = colIdx - 1; 
     let idx2 = rowIdx + 1;  
-    
     while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === player) {
         count++; 
         idx1--;
@@ -140,13 +142,13 @@ function checkDiagWinLeft(colIdx, rowIdx) {
         idx2--; 
     }
     return count >= 4 ? winner = true : null;  
-};
-function checkDiagWinRight(colIdx, rowIdx) {
-    const player = board[colIdx][rowIdx];
+}
+
+function checkDiagWinRight(colIdx, rowIdx, player) {
     let count = 1;
+    
     let idx1 = colIdx + 1; 
     let idx2 = rowIdx + 1;  
-    
     while (idx1 < board.length && idx2 < board[0].length && board[idx1][idx2] === player) {
         count++; 
         idx1++;
@@ -161,18 +163,11 @@ function checkDiagWinRight(colIdx, rowIdx) {
         idx2--; 
     }
     return count >= 4 ? winner = true : null; 
-};
+}
        
 function getGameStatus() {
     let flatBoard = board.flat(2); 
     if (!flatBoard.includes(0)) return 't'; 
     if (winner === true) return 'w'; 
     return null;
-};
-
-function renderSlots () {
-    slotEls.forEach(function(slotEl, colIdx) {
-        slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'; 
-    }) 
-};
-
+}

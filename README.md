@@ -11,7 +11,7 @@ Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. Hatchfour is
 - Javascript
 
 ## Getting Started
-Click below to play! Decide who wants to be the T-Rex and who wants to be the Stegosaurus. T-Rex goes first! 
+Click below to play! Decide who wants to be the T-Rex and who wants to be the Stegosaurus. T-Rex goes first! Tap on the down arrows above the eggs, to select the column you want your dinosaur to hatch. Dinos will hatch from the bottom up!
 [Play Hatchfour!](https://lilliesheely.github.io/Connect4/)
 
 ## Next Steps
