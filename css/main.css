@@ -7,6 +7,11 @@ body {
     background-color: #1B9AAA;
     font-family: "Nunito", sans-serif; 
     background-image: url("https://i.imgur.com/4J6GeEc.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #slots {
@@ -17,12 +22,13 @@ body {
     grid-template-rows: 9vh;
     gap: 1vh; 
     cursor: pointer;
-    margin-left: 4.4vh;
+    margin-left: 7vh;
+    margin-bottom: -7vh;
 }
 
     #board { 
     display: grid;
-    height: 70vh;
+    height: 6-0vh;
     width: 85vh;
     grid-template-columns: repeat(7, 11vh);
     grid-template-rows: repeat(6, 9vh);
