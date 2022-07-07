@@ -1,11 +1,9 @@
 // /*----- constants -----*/
-const COLOR_LOOKUP = { 
-    "1": 'white', 
-    "-1": 'black',
-    "0": 'yellow'
-}
-
-    // -1 url/omages/pepperoni
+const IMAGE_LOOKUP = { 
+    "1": "url(images/trex.png)", 
+    "-1": "url(images/spiky.png)",
+    "0": ''
+};
 
 // /*----- app's state (variables) -----*/
 let board; 
@@ -45,7 +43,7 @@ function render() {
     board.forEach(function(columnArr, columnIdx) {
         columnArr.forEach(function(spaceValue, rowIdx) {
             const spaceEl = document.getElementById(`c${columnIdx}r${rowIdx}`);   
-            spaceEl.style.backgroundColor = COLOR_LOOKUP[spaceValue];           
+            spaceEl.style.backgroundImage = IMAGE_LOOKUP[spaceValue];           
         });
     });
     renderMessage();
@@ -66,13 +64,13 @@ function handleChoice(evt) {
     render();
 };
 
-function renderMessage(player){
+function renderMessage(){
         if (gameStatus === null) {
-                messageEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn]}"> ${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
+                messageEl.innerHTML = `T-Rex's Turn!`;
         } else if (gameStatus === 't') {
                 messageEl.innerHTML = `Tie Game! Play again!`;
         } else {
-             messageEl.innerHTML = `<span style = "color: ${COLOR_LOOKUP[turn*-1]}"> ${COLOR_LOOKUP[turn*-1].toUpperCase()}</span> WINS! Rematch?` // 
+             messageEl.innerHTML = `<span style = "color: ${IMAGE_LOOKUP[turn*-1]}"> ${IMAGE_LOOKUP[turn*-1].toUpperCase()}</span> WINS! Rematch?` // 
         };
 };
 
@@ -170,3 +168,4 @@ function renderSlots () {
         slotEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden'; 
     });
 };
+
