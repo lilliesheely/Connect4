@@ -7,9 +7,9 @@ Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. It is a 2-pe
 
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Start of Game</h3> | <img src="https://i.imgur.com/fbAV6Au.png?1" width="700"/> |
-| <h3 align="center">Winner!</h3> | <img src="https://i.imgur.com/Q9irV2U.png?2" width="700"/> |
-| <h3 align="center">Game in Porgress!</h3> | <img src="https://i.imgur.com/5SAYlNg.png" width="700"/> |
+| <h3 align="center">Start of Game</h3> | <img src="https://i.imgur.com/pmiKe1o.png" width="700"/> |
+| <h3 align="center">Game in Progress!</h3> | <img src="https://i.imgur.com/5SAYlNg.png" width="700"/> |
+| <h3 align="center">Winner!</h3> | <img src="https://i.imgur.com/4PbEx7v.png" width="700"/> |
 | <h3 align="center">Tie!</h3> | <img src="https://i.imgur.com/jHVD2im.png" width="700"/> |
 </details>
 
@@ -25,9 +25,9 @@ Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. It is a 2-pe
 
 
 ## Getting Started
-<div align="center">HATCHFOUR</div>[Play Hatchfour!](https://lilliesheely.github.io/Connect4/)</div>
+<div align="center">[Play Hatchfour!](https://lilliesheely.github.io/Connect4/)</div>
 
-Click below to play! Decide who wants to be the T-Rex and who wants to be the Stegosaurus. T-Rex goes first! Tap on the down arrows above the eggs to select the column you want your dinosaur to hatch. Dinos will hatch from the bottom up!
+Click above to play! Decide who wants to be the T-Rex and who wants to be the Stegosaurus. T-Rex goes first! Tap on the down arrows above the eggs to select the column you want your dinosaur to hatch. Dinos will hatch from the bottom up!
 
 ## Next Steps
 - [ ] Create a scoreboard for T-Rex wins & Stegosaurus wins
