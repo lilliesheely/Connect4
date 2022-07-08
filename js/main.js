@@ -171,3 +171,11 @@ function checkDiagWinRight(colIdx, rowIdx, player) {
     }
     return count >= 4 ? winner = true : null; 
 }
+       
+function getGameStatus() {
+    let flatBoard = board.flat(2); 
+    if (!flatBoard.includes(0)) return 't'; 
+    if (winner === true) return 'w'; 
+    return null;
+}
+
