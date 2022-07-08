@@ -21,7 +21,8 @@ const audioTie = new Audio ('./audio/tie.mp3')
 // /*----- event listeners -----*/
 document.getElementById('slots').addEventListener('click', handleChoice);
 replayBtn.addEventListener('click', init)
-/*----- functions -----*/
+
+// /*----- functions -----*/
 init();
 
 function init() {
@@ -170,11 +171,3 @@ function checkDiagWinRight(colIdx, rowIdx, player) {
     }
     return count >= 4 ? winner = true : null; 
 }
-       
-function getGameStatus() {
-    let flatBoard = board.flat(2); 
-    if (!flatBoard.includes(0)) return 't'; 
-    if (winner === true) return 'w'; 
-    return null;
-}
-
