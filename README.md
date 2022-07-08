@@ -8,22 +8,21 @@ Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. It is a 2-pe
 | Description | Screenshot |
 |------------ | ------------|
 | <h3 align="center">Start of Game</h3> | <img src="https://i.imgur.com/pmiKe1o.png" width="700"/> |
-| <h3 align="center">Game in Progress!</h3> | <img src="https://i.imgur.com/5SAYlNg.png" width="700"/> |
-| <h3 align="center">Winner!</h3> | <img src="https://i.imgur.com/4PbEx7v.png" width="700"/> |
-| <h3 align="center">Tie!</h3> | <img src="https://i.imgur.com/jHVD2im.png" width="700"/> |
+| <h3 align="center">Game in Progress</h3> | <img src="https://i.imgur.com/5SAYlNg.png" width="700"/> |
+| <h3 align="center">Winner</h3> | <img src="https://i.imgur.com/4PbEx7v.png" width="700"/> |
+| <h3 align="center">Tie</h3> | <img src="https://i.imgur.com/jHVD2im.png" width="700"/> |
 </details>
 
 ## <div align="center">Built With</div>
-
-![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript) 
-![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
-![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
-![Markdown](https://img.shields.io/badge/-Markdown-333?style=flat&logo=markdown)
-![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
-![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
+- HTML5
+- CSS3
+- JavaScript
+- Markdown
+- Github
+- VSCode
 
 ## <div align="center">Getting Started</div>
-[Play Hatchfour!](https://lilliesheely.github.io/Connect4/)
+[Play Hatchfour!](https://lilliesheely.github.io/Connect4/) <br>
 Click above to play! Decide who wants to be the T-Rex and who wants to be the Stegosaurus. T-Rex goes first! Tap on the down arrows above the eggs to select the column you want your dinosaur to hatch. Dinos will hatch from the bottom up!
 
 ## <div align="center">Future Upgrades</div>
