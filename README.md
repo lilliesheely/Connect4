@@ -38,4 +38,5 @@ Thank you to everyone who helped get this game working!
 - Mario Recinos
 - Steph Lee
 - Devlin Booth
+- Kenneth Chang
 - and all my course-mates at General Assembly, SEI 6-21-22!
