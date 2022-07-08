@@ -1,28 +1,28 @@
-// /*----- constants -----*/
+/*----- constants -----*/
 const IMAGE_LOOKUP = { 
     "1": "url(https://i.imgur.com/YJOzxFl.png?2)", 
     "-1": "url(https://i.imgur.com/uenhlcC.png?3)",
     "0": ''
 }
 
-// /*----- app's state (variables) -----*/
+/*----- app's state (variables) -----*/
 let board; 
 let turn; 
 let gameStatus; 
 let winner;
  
-// /*----- cached element references -----*/
+/*----- cached element references -----*/
 const slotEls = [...document.querySelectorAll("#slots > div")];
 const replayBtn = document.querySelector("button");
 const messageEl = document.querySelector("h2");
 const audioWinner = new Audio('./audio/Winner.mp3');
 const audioTie = new Audio ('./audio/tie.mp3')
 
-// /*----- event listeners -----*/
+/*----- event listeners -----*/
 document.getElementById('slots').addEventListener('click', handleChoice);
 replayBtn.addEventListener('click', init)
 
-// /*----- functions -----*/
+/*----- functions -----*/
 init();
 
 function init() {
