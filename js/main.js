@@ -15,11 +15,12 @@ let winner;
 const slotEls = [...document.querySelectorAll("#slots > div")];
 const replayBtn = document.querySelector("button");
 const messageEl = document.querySelector("h2");
+const audioWinner = new Audio('./audio/Winner.mp3');
+const audioTie = new Audio ('./audio/tie.mp3')
 
 // /*----- event listeners -----*/
 document.getElementById('slots').addEventListener('click', handleChoice);
-replayBtn.addEventListener('click', init);
-
+replayBtn.addEventListener('click', init)
 /*----- functions -----*/
 init();
 
@@ -36,6 +37,8 @@ function init() {
     turn = 1; 
     gameStatus = null;
     winner = null; 
+    audioWinner.pause();
+    audioTie.pause();
     render();  
 } 
 
@@ -71,11 +74,14 @@ function renderMessage(){
     } else if (gameStatus === null && turn === -1) {
         messageEl.innerHTML = `Stegosaurus' Turn!`;
     } else if (gameStatus === 't') {
-        messageEl.innerHTML = `Tie Game! Play again!`;
+        messageEl.innerHTML = `TIE GAME! Play again!`;
+        audioTie.play();
     } else if (gameStatus === 'w' && turn === -1) {
         messageEl.innerHTML = ` T-REX WINS! Rematch?`; 
+        audioWinner.play();
     } else if (gameStatus === 'w' && turn === 1) { 
         messageEl.innerHTML = ` STEGOSAURUS WINS! Rematch?`;
+        audioWinner.play();
     }
 }
 
@@ -171,3 +177,4 @@ function getGameStatus() {
     if (winner === true) return 'w'; 
     return null;
 }
+
