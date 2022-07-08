@@ -7,11 +7,12 @@ Hatchfour is a "dinosaur-themed" take on the classic Connect4 game. It is a 2-pe
 
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Feed Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true" width="700"/> |
-| <h3 align="center">Profile Page</h3> | <img src="https://github.com/amarpan/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png" width="700"/> |
+| <h3 align="center">Start of Game</h3> | <img src="https://i.imgur.com/fbAV6Au.png?1" width="700"/> |
+| <h3 align="center">Winner!</h3> | <img src="https://i.imgur.com/Q9irV2U.png?2" width="700"/> |
+| <h3 align="center">Game in Porgress!</h3> | <img src="https://i.imgur.com/5SAYlNg.png" width="700"/> |
+| <h3 align="center">Tie!</h3> | <img src="https://i.imgur.com/jHVD2im.png" width="700"/> |
 </details>
-![Screenshot](https://i.imgur.com/fbAV6Au.png?1)
-![Screenshot](https://i.imgur.com/Q9irV2U.png?2)
+
 
 ## Built With
 
