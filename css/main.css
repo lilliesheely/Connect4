@@ -8,41 +8,35 @@ body {
     font-family: "Nunito", sans-serif; 
     background-image: url("https://i.imgur.com/4J6GeEc.jpg");
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    margin-top: 2vh;
-    margin-bottom: 10vmin;
+    margin: 0;
 }
 
 #slots {
     display: grid;
-    width: 85vh; 
-    height: 12vh;
-    grid-template-columns: repeat(7, 11vh);
-    grid-template-rows: 9vh;
+    width: 75vmin; 
+    height: 12vmin;
+    grid-template-columns: repeat(7, 10vmin);
+    grid-template-rows: 7vmin;
     gap: 1vh; 
     cursor: pointer;
-    margin-left: 7vh;
-    margin-bottom: -5vh;
-    margin-top: -6vh;
+    margin: 0;
+    padding-left: 1.3vmin;
 }
 
 #board { 
     display: grid;
-    height: 6-0vh;
-    width: 85vh;
-    grid-template-columns: repeat(7, 11vh);
-    grid-template-rows: repeat(6, 9vh);
+    height: 80vmin;
+    width: 77vmin;
+    grid-template-columns: repeat(7, 10vmin);
+    grid-template-rows: repeat(6, 9vmin);
     gap: 1vh; 
     background: rgba(255, 255, 255, 0.6);
     border-radius: 5%;
-    margin-top: -2vh;
-    margin-bottom: -2vh;
-}
-
-#slots > div {
-    background-color: transparent;
-    background: url("https://i.imgur.com/x2RHFrt.png?2");
-    background-repeat: no-repeat;   
+    margin-top: -1vmin;
 }
 
 #board > div {
@@ -51,8 +45,13 @@ body {
     background: url("https://i.imgur.com/utasL2x.png?3");
     background-repeat: no-repeat;
     background-position: center;
-    margin-left: 2vh;
     border-radius: 15%;
+}
+
+#slots > div {
+    background-color: transparent;
+    background: url("https://i.imgur.com/x2RHFrt.png?2");
+    background-repeat: no-repeat;   
 }
 
 #slots > div:hover {
@@ -61,24 +60,26 @@ body {
 
 h1 {
     color: #ffffff;
-    font-size: 10vh; 
-    margin-top: -4vh;
+    font-size: 9vmin; 
+    margin-top: 4vmin;
+    margin-bottom: -.5vmin;
 }
 
 h2 {
     color: #ffffff;
-    font-size: 5vh;
-    margin-bottom: -3vh;
+    font-size: 4vmin;
+    margin: 0;
+    padding: 1vmin;
 }
 
 button {
     background-color:#f45051;
     color: #fff;
-    border: none; 
+    border:none; 
     border-radius:10px; 
     padding:15px;
     min-height:30px; 
     min-width: 120px;
     font-family: "Nunito", sans-serif; 
-} 
-
+    margin-bottom: 4vmin;
+}

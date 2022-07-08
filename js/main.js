@@ -1,7 +1,7 @@
 // /*----- constants -----*/
 const IMAGE_LOOKUP = { 
     "1": "url(https://i.imgur.com/YJOzxFl.png?2)", 
-    "-1": "url(https://i.imgur.com/uenhlcC.png?1)",
+    "-1": "url(https://i.imgur.com/uenhlcC.png?3)",
     "0": ''
 }
 
